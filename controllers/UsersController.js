@@ -19,8 +19,10 @@ class UserController {
       password: sha1(password),
     };
 
+    const userDB = await dbClient.addUser(newUser);
+
     return res.status(201).json({
-      id: await dbClient.addUser(newUser).insertedId,
+      id: userDB.insertedId,
       email,
     });
   }
