@@ -20,7 +20,7 @@ class UserController {
     };
 
     return res.status(201).json({
-      id: await dbClient.addUser(newUser),
+      id: await dbClient.addUser(newUser).insertedId,
       email,
     });
   }
