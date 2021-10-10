@@ -28,6 +28,14 @@ class DBclient {
   async nbFiles() {
     return this.db.collection('files').countDocuments();
   }
+
+  async userExists(email) {
+    return this.db.collection('users').findOne({ email });
+  }
+
+  async addUser(user) {
+    return this.db.collection('users').insertOne(user);
+  }
 }
 
 const dbClient = new DBclient();
