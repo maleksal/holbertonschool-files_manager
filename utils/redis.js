@@ -8,8 +8,8 @@ class RedisClient {
     this.client = createClient();
     this.client.get = promisify(this.client.get).bind(this.client);
     this.client.on('error', (error) => {
-        this.status = false;
-        console.log(error);
+      this.status = false;
+      console.log(error);
     });
   }
 
